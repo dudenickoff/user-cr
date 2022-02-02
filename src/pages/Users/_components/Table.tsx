@@ -1,18 +1,13 @@
-import usersMock from '../../../mocks/users'
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import {UsersArray} from '.././types/user'
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
+
+import { UsersArray } from '.././types/user'
 
 type UsersTableProps = {
   users: UsersArray
+  deleteUserById: (id: number) => void
 }
 
-const UsersTable = ({ users } : UsersTableProps) => {
+const UsersTable = ({ users, deleteUserById } : UsersTableProps) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -24,6 +19,7 @@ const UsersTable = ({ users } : UsersTableProps) => {
             <TableCell>Time zone</TableCell>
             <TableCell>Phone number</TableCell>
             <TableCell>About user</TableCell>
+            <TableCell>Delete</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -41,6 +37,7 @@ const UsersTable = ({ users } : UsersTableProps) => {
               <TableCell>{user.timezone}</TableCell>
               <TableCell>{user.phoneNumber}</TableCell>
               <TableCell>{user.aboutMe}</TableCell>
+              <TableCell><Button onClick={() => deleteUserById(user.id)}>Delete</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>

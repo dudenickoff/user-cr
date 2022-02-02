@@ -5,7 +5,7 @@ const users = [
     lastName: 'Yoad',
     timezone: 'Europe',
     userName: 'admin_yoad',
-    phoneNumber: 123456789,
+    phoneNumber: '123456789',
     aboutMe: 'Default admin user'
   },
   {
@@ -14,7 +14,7 @@ const users = [
     lastName: 'Serge',
     timezone: 'Europe',
     userName: 'admin_serge',
-    phoneNumber: 123456789,
+    phoneNumber: '123456789',
     aboutMe: 'Serge admin user'
   },
 ]

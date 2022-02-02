@@ -4,7 +4,7 @@ export type User = {
   lastName: string,
   timezone: string,
   userName: string,
-  phoneNumber: number,
+  phoneNumber: string,
   aboutMe: string
 }
 
