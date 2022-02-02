@@ -1,5 +1,5 @@
-import './App.css';
-import Users from './pages/Users'
+import "./App.css";
+import Users from "./pages/Users";
 
 function App() {
   return (

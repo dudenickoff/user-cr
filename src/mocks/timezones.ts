@@ -94,5 +94,5 @@ export const timezones = [
   "Asia/Magadan",
   "Pacific/Auckland",
   "Pacific/Tongatapu",
-  "Pacific/Apia"
-]
+  "Pacific/Apia",
+];
