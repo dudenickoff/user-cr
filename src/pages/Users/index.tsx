@@ -1,23 +1,24 @@
 import { useState } from 'react';
 import { Box, Button, Typography } from '@mui/material'
 
-import usersMock from '../../mocks/users'
-import { UsersArray, User } from './types/user'
+import usersMock from 'mocks/users'
+import Dialog from 'components/Dialog'
+
+import { User } from './types/user'
 
 import Table from './_components/Table'
-import Dialog from '../../components/Dialog'
 import Form from './_components/Form'
 
 const Users = () => {
-  const [users, setUsers] = useState<UsersArray>(usersMock)
+  const [users, setUsers] = useState<User[]>(usersMock)
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
 
   const formSubmit = (values: User) => {
-    setUsers([...users, { ...values, id: users.length+1 }])
+    setUsers((prevState) => [...prevState, { ...values, id: users.length+1 }])
     setModalIsOpen(false)
   }
 
-  const deleteUserById = (userId: number) => {
+  const onDelete = (userId: number) => {
     setUsers([...users.filter(user => userId !== user.id)])
   }
 
@@ -31,7 +32,7 @@ const Users = () => {
           </Box>
         </Box>
         <Box mt={4}>
-          <Table users={users} deleteUserById={deleteUserById}/>
+          <Table users={users} onDelete={onDelete}/>
         </Box>
       </Box>
       <Dialog isOpen={modalIsOpen} onClose={() => setModalIsOpen(false)} isForm>

@@ -1,13 +1,22 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Button,
+} from "@mui/material";
 
-import { UsersArray } from '.././types/user'
+import { User } from ".././types/user";
 
 type UsersTableProps = {
-  users: UsersArray
-  deleteUserById: (id: number) => void
-}
+  users: Array<User>;
+  onDelete: (id: number) => void;
+};
 
-const UsersTable = ({ users, deleteUserById } : UsersTableProps) => {
+const UsersTable = ({ users, onDelete }: UsersTableProps) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -24,26 +33,22 @@ const UsersTable = ({ users, deleteUserById } : UsersTableProps) => {
         </TableHead>
         <TableBody>
           {users.map((user) => (
-            <TableRow
-              key={user.id}
-            >
-              <TableCell>
-                {user.firstName}
-              </TableCell>
-              <TableCell>
-                {user.lastName}
-              </TableCell>
+            <TableRow key={user.id}>
+              <TableCell>{user.firstName}</TableCell>
+              <TableCell>{user.lastName}</TableCell>
               <TableCell>{user.userName}</TableCell>
               <TableCell>{user.timezone}</TableCell>
               <TableCell>{user.phoneNumber}</TableCell>
               <TableCell>{user.aboutMe}</TableCell>
-              <TableCell><Button onClick={() => deleteUserById(user.id)}>Delete</Button></TableCell>
+              <TableCell>
+                <Button onClick={() => onDelete(user.id)}>Delete</Button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
-}
+};
 
-export default UsersTable
+export default UsersTable;

@@ -8,4 +8,4 @@ export type User = {
   aboutMe: string
 }
 
-export type UsersArray = Array<User>
+// export type UsersArray = Array<User>
